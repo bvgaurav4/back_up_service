@@ -1,0 +1,8 @@
+import schedule # type: ignore
+import time
+
+schedule.every(1/2).minutes.do(upload_file)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
