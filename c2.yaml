@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: bvgaurav/lol:latest  
+            imagePullPolicy: IfNotPresent
+            volumeMounts:  # Mount the volume in the container
+            - name: myvolume
+              mountPath: /path/in/container
+          restartPolicy: OnFailure
+          volumes:  # Link the volume to a PVC
+          - name: myvolume
+            persistentVolumeClaim:
+              claimName: myclaim

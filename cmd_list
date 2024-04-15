@@ -1,0 +1,2 @@
+docker images
+ kubectl apply -f cronjob.yaml 

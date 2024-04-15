@@ -9,8 +9,7 @@ import pickle
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
 
-if os.path.exists('token.pickle'):
-    os.remove('token.pickle')
+
 
 def upload_file():
     """Shows basic usage of the Drive v3 API.
